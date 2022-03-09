@@ -19,6 +19,10 @@ class Platforms
     #[ORM\Column(type: 'string', length: 255)]
     private $modelPlatform;
 
+    #[ORM\ManyToOne(targetEntity: Manufacturers::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    private $id_manufacturer;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +48,19 @@ class Platforms
     public function setModelPlatform(string $modelPlatform): self
     {
         $this->modelPlatform = $modelPlatform;
+
+        return $this;
+    }
+
+    
+    public function getIdRole(): ?Manufacturers
+    {
+        return $this->id_manufacturer;
+    }
+
+    public function setIdRole(?Manufacturers $id_manufacturer): self
+    {
+        $this->id_manufacturer = $id_manufacturer;
 
         return $this;
     }
