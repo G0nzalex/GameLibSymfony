@@ -17,4 +17,21 @@ class DefaultController extends AbstractController
             'controller_name' => 'DefaultController',
         ]);
     }
+    #[Route('/contact', name: 'contact')]
+    public function contact(): Response
+    {
+        $urlContact = $this->generateUrl('contact');
+        return $this->render('default/contact.html.twig', [
+            'urlContact' => $urlContact,
+            'controller_name' => 'DefaultController',
+        ]);
+    }
+    public function displayGames(): Response
+    {
+        $urlDisplayGames = $this->generateUrl('displayGames');
+        return $this->render('default/displayGames.html.twig', [
+            'urlDisplayGames' => $urlDisplayGames,
+            'controller_name' => 'DefaultController',
+        ]);
+    }
 }
